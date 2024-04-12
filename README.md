@@ -1,3 +1,6 @@
+                                                                                                                                                                                                  G MOHANRAJ
+                                                                                                                                                                                                 212223060166
+
 SIMULATION AND IMPLEMENTATION OF  COMBINATIONAL LOGIC CIRCUITS
 
 AIM: 
@@ -50,10 +53,55 @@ STEP:11  On the board, by giving required input, the LEDs starts to glow light, 
 
 VERILOG CODE
 
-   <<< TYPE YOUR VERILOG CODE >>>
+Encoder:
+```
+module encoder8_3(a,y);
+input [7:0]a;
+output [2:0]y;
+reg [7:0]y;
+always@(*)
+   begin
+      case(a)
+         8'b00000001: y=3'b000;
+         8'b00000010: y=3'b001;
+         8'b00000100: y=3'b010;
+         8'b00001000: y=3'b011;
+         8'b00010000: y=3'b100;
+         8'b00100000: y=3'b101;
+         8'b01000000: y=3'b110;
+         8'b10000000: y=3'b111;
+       endcase
+   end     
+endmodule
+```
+OUTPUT:![Screenshot 2024-03-16 113016](https://github.com/Mohanraj7896/VLSI-LAB-EXP-2/assets/166592482/e26c4198-9b78-49eb-a2f1-16fa4506a25b)
 
-OUTPUT WAVEFORM
- <<< PASTE YOUR OUTPUT WAVEFORM >>>
+Decoder:
+```
+module decoder3_8(a,y);
+input [2:0]a;
+output [7:0]y;
+reg [7:0]y;
+always@ (*)
+  begin
+     case(a)
+        3'b000: y=8'b00000001;
+        3'b001: y=8'b00000010;
+        3'b010: y=8'b00000100;
+        3'b011: y=8'b00001000;
+        3'b100: y=8'b00010000;
+        3'b101: y=8'b00100000;
+        3'b110: y=8'b01000000;
+        3'b111: y=8'b10000000;
+      endcase
+   end    
+endmodule
+```
+OUTPUT:![Screenshot 2024-03-16 121655](https://github.com/Mohanraj7896/VLSI-LAB-EXP-2/assets/166592482/8e3ef12b-1437-4618-bf86-5b28f9a7e3cf)
+
+Multiplexer:
+
+
 
 RESULT
 
