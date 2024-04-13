@@ -169,7 +169,8 @@ gt=1'b0;
 end
 endmodule
 ```
-OUTPUT:![Screenshot 2024-03-16 114003](https://github.com/Mohanraj7896/VLSI-LAB-EXP-2/assets/166592482/b44cdbea-5def-4a54-8ccc-c2d3686acdb7)
+OUTPUT:![Screenshorts Image 2024-04-13 at 09 59 59_e263eb8c](https://github.com/Mohanraj7896/VLSI-LAB-EXP-2/assets/166592482/478f74a3-0f9c-41f4-9966-8741ef87c589)
+
 
 
 RESULT
