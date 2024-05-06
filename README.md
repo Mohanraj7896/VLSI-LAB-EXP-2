@@ -54,6 +54,11 @@ STEP:11  On the board, by giving required input, the LEDs starts to glow light, 
 VERILOG CODE
 
 ENCODER:
+
+LOGIC DIAGRAM:
+![image](https://github.com/navaneethans/VLSI-LAB-EXP-2/assets/6987778/3cd1f95e-7531-4cad-9154-fdd397ac439e)
+
+
 ```
 module encoder8_3(a,y);
 input [7:0]a;
@@ -77,6 +82,12 @@ endmodule
 OUTPUT:![Screenshot 2024-03-16 113016](https://github.com/Mohanraj7896/VLSI-LAB-EXP-2/assets/166592482/e26c4198-9b78-49eb-a2f1-16fa4506a25b)
 
 DECODER:
+
+LOGIC DIAGRAM:
+
+![image](https://github.com/navaneethans/VLSI-LAB-EXP-2/assets/6987778/45a5e6cf-bbe0-4fd5-ac84-e5ad4477483b)
+
+
 ```
 module decoder3_8(a,y);
 input [2:0]a;
@@ -100,6 +111,12 @@ endmodule
 OUTPUT:![Screenshot 2024-03-16 121655](https://github.com/Mohanraj7896/VLSI-LAB-EXP-2/assets/166592482/8e3ef12b-1437-4618-bf86-5b28f9a7e3cf)
 
 MULTIPLEXER:
+
+LOGIC DIAGRAM:
+
+![image](https://github.com/navaneethans/VLSI-LAB-EXP-2/assets/6987778/427f75b2-8e67-44b9-ac45-a66651787436)
+
+
 ```
 module mux(a,s,y);
 input [7:0]a;
@@ -124,6 +141,12 @@ endmodule
 OUTPUT:![Screenshot 2024-04-13 at 09 59 59_d27e847f](https://github.com/Mohanraj7896/VLSI-LAB-EXP-2/assets/166592482/fb4d3280-85b3-41d0-8610-418b4409b768)
 
 DEMULTIPLEXER:
+
+LOGIC DIAGRAM:
+
+![image](https://github.com/navaneethans/VLSI-LAB-EXP-2/assets/6987778/1c45a7fc-08ac-4f76-87f2-c084e7150557)
+
+
 ```
 module demux(din,s,d);
 input din;
@@ -142,6 +165,13 @@ endmodule
 OUTPUT:![Screenshot 2024-03-15 195918](https://github.com/Mohanraj7896/VLSI-LAB-EXP-2/assets/166592482/c0f43882-e3bd-45d5-9dce-f3d29bc0b051)
 
 MAGNITUDE COMPARATOR:
+
+LOGIC DIAGRAM:
+
+![image](https://github.com/navaneethans/VLSI-LAB-EXP-2/assets/6987778/b2fe7a05-6bf7-4dcb-8f5d-28abbf7ea8c2)
+
+
+
 ```
 module magnitudecomparator(a,b,eq,lt,gt);
 input [3:0]a,b;
