@@ -56,6 +56,7 @@ VERILOG CODE
 ENCODER:
 
 LOGIC DIAGRAM:
+
 ![image](https://github.com/navaneethans/VLSI-LAB-EXP-2/assets/6987778/3cd1f95e-7531-4cad-9154-fdd397ac439e)
 
 
