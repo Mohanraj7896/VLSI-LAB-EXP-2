@@ -1,5 +1,5 @@
-                                                                                                                                                                                                  G MOHANRAJ
-                                                                                                                                                                                                 212223060166
+  G MOHANRAJ
+ 212223060166
 
 # SIMULATION AND IMPLEMENTATION OF  COMBINATIONAL LOGIC CIRCUITS
 
