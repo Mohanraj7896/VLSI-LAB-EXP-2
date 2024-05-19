@@ -1,209 +1,133 @@
-  G MOHANRAJ
- 212223060166
+ # SIMULATION AND IMPLEMENTATION OF  COMBINATIONAL LOGIC CIRCUITS
 
-# SIMULATION AND IMPLEMENTATION OF  COMBINATIONAL LOGIC CIRCUITS
-
-# AIM: 
+## AIM: 
  To simulate and synthesis ENCODER, DECODER, MULTIPLEXER, DEMULTIPLEXER, MAGNITUDE COMPARATOR using Xilinx ISE.
 
-# APPARATUS REQUIRED:
+## APPARATUS REQUIRED:
 Xilinx 14.7
 Spartan6 FPGA
 
-**LOGIC DIAGRAM**
-
-ENCODER
-
-![image](https://github.com/navaneethans/VLSI-LAB-EXP-2/assets/6987778/3cd1f95e-7531-4cad-9154-fdd397ac439e)
-
-
-DECODER
-
-![image](https://github.com/navaneethans/VLSI-LAB-EXP-2/assets/6987778/45a5e6cf-bbe0-4fd5-ac84-e5ad4477483b)
-
-
-MULTIPLEXER
-
-![image](https://github.com/navaneethans/VLSI-LAB-EXP-2/assets/6987778/427f75b2-8e67-44b9-ac45-a66651787436)
-
-
-DEMULTIPLEXER
-
-![image](https://github.com/navaneethans/VLSI-LAB-EXP-2/assets/6987778/1c45a7fc-08ac-4f76-87f2-c084e7150557)
-
-
-MAGNITUDE COMPARATOR
-
-![image](https://github.com/navaneethans/VLSI-LAB-EXP-2/assets/6987778/b2fe7a05-6bf7-4dcb-8f5d-28abbf7ea8c2)
-
-
-  
-PROCEDURE:
-STEP:1  Start  the Xilinx navigator, Select and Name the New project.
+## PROCEDURE:
+STEP:1  Start  the Xilinx navigator, Select and Name the New project.       
 STEP:2  Select the device family, device, package and speed.       
-STEP:3  Select new source in the New Project and select Verilog Module as the Source type.                       
-STEP:4  Type the File Name and Click Next and then finish button. Type the code and save it.
-STEP:5  Select the Behavioral Simulation in the Source Window and click the check syntax.                       
-STEP:6  Click the simulation to simulate the program and  give the inputs and verify the outputs as per the truth table.               
-STEP:7  Select the Implementation in the Sources Window and select the required file in the Processes Window.
-STEP:8  Select Check Syntax from the Synthesize  XST Process. Double Click in the  FloorplanArea/IO/Logic-Post Synthesis process in the User Constraints process group. UCF(User constraint File) is obtained. 
-STEP:9  In the Design Object List Window, enter the pin location for each pin in the Loc column Select save from the File menu.
-STEP:10 Double click on the Implement Design and double click on the Generate Programming File to create a bitstream of the design.(.v) file is converted into .bit file here.
-STEP:11  On the board, by giving required input, the LEDs starts to glow light, indicating the output.
+STEP:3  Select new source in the New Project and select Verilog Module as the Source type.                             
+STEP:4  Type the File Name and Click Next and then finish button. Type the code and save it.       
+STEP:5  Select the Behavioral Simulation in the Source Window and click the check syntax.                            
+STEP:6  Click the simulation to simulate the program and  give the inputs and verify the outputs as per the truth table.                      
+STEP:7  Select the Implementation in the Sources Window and select the required file in the Processes Window.       
+STEP:8  Select Check Syntax from the Synthesize  XST Process. Double Click in the  FloorplanArea/IO/Logic-Post Synthesis process in the User Constraints process group. UCF(User constraint File) is obtained.       
+STEP:9  In the Design Object List Window, enter the pin location for each pin in the Loc column Select save from the File menu.       
+STEP:10 Double click on the Implement Design and double click on the Generate Programming File to create a bitstream of the design.(.v) file is converted into .bit file here.       
+STEP:11  On the board, by giving required input, the LEDs starts to glow light, indicating the output.       
 
-VERILOG CODE
-
-ENCODER:
-
-LOGIC DIAGRAM:
-
+## Encoder
+### Logic Diagram:
 ![image](https://github.com/navaneethans/VLSI-LAB-EXP-2/assets/6987778/3cd1f95e-7531-4cad-9154-fdd397ac439e)
-
-
+### Verilog code:
 ```
-module encoder8_3(a,y);
-input [7:0]a;
-output [2:0]y;
-reg [7:0]y;
-always@(*)
-   begin
-      case(a)
-         8'b00000001: y=3'b000;
-         8'b00000010: y=3'b001;
-         8'b00000100: y=3'b010;
-         8'b00001000: y=3'b011;
-         8'b00010000: y=3'b100;
-         8'b00100000: y=3'b101;
-         8'b01000000: y=3'b110;
-         8'b10000000: y=3'b111;
-       endcase
-   end     
+module encoder(d,a,b,c);
+input [7:0]d;
+output a,b,c;
+or(a,d[4],d[5],d[6],d[7]);
+or(b,d[2],d[3],d[6],d[7]);
+or(c,d[1],d[3],d[5],d[7]);
 endmodule
 ```
-OUTPUT:![Screenshot 2024-03-16 113016](https://github.com/Mohanraj7896/VLSI-LAB-EXP-2/assets/166592482/e26c4198-9b78-49eb-a2f1-16fa4506a25b)
+### Output Waveform:
+![image](https://github.com/NMRohith/VLSI-LAB-EXP-2/assets/163638659/89f8d4cf-4159-48bd-b7b8-4c1a54ba0251)
 
-DECODER:
-
-LOGIC DIAGRAM:
-
+## Decoder
+### Logic Diagram:
 ![image](https://github.com/navaneethans/VLSI-LAB-EXP-2/assets/6987778/45a5e6cf-bbe0-4fd5-ac84-e5ad4477483b)
-
-
+### Verilog code:
 ```
-module decoder3_8(a,y);
-input [2:0]a;
-output [7:0]y;
-reg [7:0]y;
-always@ (*)
-  begin
-     case(a)
-        3'b000: y=8'b00000001;
-        3'b001: y=8'b00000010;
-        3'b010: y=8'b00000100;
-        3'b011: y=8'b00001000;
-        3'b100: y=8'b00010000;
-        3'b101: y=8'b00100000;
-        3'b110: y=8'b01000000;
-        3'b111: y=8'b10000000;
-      endcase
-   end    
+module decoder_8(a,b,c,y);
+input a,b,c; 
+output[7:0]y; 
+and gl(y[0],(~a),(~b),(~c)); 
+and g2(y[1],(~a),(~b),(c)); 
+and g3(y[2],(~a),(b),(~c));
+and g4(y[3],(~a),(b),(c));
+and g5(y[4],(a),(~b),(~c));
+and g6(y[5],(a), (~b), (c));
+and g7(y[6], (a), (b), (~c)); 
+and g8(y[7], (a), (b), (c));
 endmodule
 ```
-OUTPUT:![Screenshot 2024-03-16 121655](https://github.com/Mohanraj7896/VLSI-LAB-EXP-2/assets/166592482/8e3ef12b-1437-4618-bf86-5b28f9a7e3cf)
+### Output Waveform:
+![image](https://github.com/NMRohith/VLSI-LAB-EXP-2/assets/163638659/eaf21b89-10f4-4a38-b460-b75d1620ef76)
 
-MULTIPLEXER:
-
-LOGIC DIAGRAM:
-
+## Multiplexer
+### Logic Diagram:
 ![image](https://github.com/navaneethans/VLSI-LAB-EXP-2/assets/6987778/427f75b2-8e67-44b9-ac45-a66651787436)
-
-
+### Verilog code:
 ```
-module mux(a,s,y);
-input [7:0]a;
-input [2:0]s;
+module mux(a,b,c,d,s0,s1,y);
+input a,b,c,d,s0,s1;
 output y;
-reg y;
-always@({s ,a})
-   begin
-      case(s)
-         3'b000: y=a[0];
-         3'b001: y=a[1];
-         3'b010: y=a[2];
-         3'b011: y=a[3];
-         3'b100: y=a[4];
-         3'b101: y=a[5];
-         3'b110: y=a[6];
-         3'b111: y=a[7];
-      endcase
-   end
+assign y=s1 ?(s0?d:c):(s0?b:a);
 endmodule
 ```
-OUTPUT:![Screenshot 2024-04-13 at 09 59 59_d27e847f](https://github.com/Mohanraj7896/VLSI-LAB-EXP-2/assets/166592482/fb4d3280-85b3-41d0-8610-418b4409b768)
+### Output Waveform:
+![image](https://github.com/NMRohith/VLSI-LAB-EXP-2/assets/163638659/27dec667-2cb4-4651-8029-46a86be99035)
 
-DEMULTIPLEXER:
-
-LOGIC DIAGRAM:
-
+## Demultiplexer
+### Logic Diagram:
 ![image](https://github.com/navaneethans/VLSI-LAB-EXP-2/assets/6987778/1c45a7fc-08ac-4f76-87f2-c084e7150557)
-
-
+### Verilog code:
 ```
-module demux(din,s,d);
-input din;
-input[2:0]s;
-output [7:0]d;
-assign d[0]=(din&~s[2]&~s[1]&~s[0]);
-assign d[1]=(din&~s[2]&~s[1]&s[0]);
-assign d[2]=(din&~s[2]&s[1]&~s[0]);
-assign d[3]=(din&~s[2]&s[1]&s[0]);
-assign d[4]=(din&s[2]&~s[1]&~s[0]);
-assign d[5]=(din&s[2]&~s[1]&s[0]);
-assign d[6]=(din&s[2]&s[1]&~s[0]);
-assign d[7]=(din&s[2]&s[1]&s[0]);
+module demux(in,s0,s1,s2,d0,d1,d2,d3,d4,d5,d6,d7);
+input in,s0,s1,s2;
+output d0,d1,d2,d3,d4,d5,d6,d7;
+assign d0=(in & ~s2 & ~s1 &~s0),
+d1=(in & ~s2 & ~s1 &s0),
+d2=(in & ~s2 & s1 &~s0),
+d3=(in & ~s2 & s1 &s0),
+d4=(in & s2 & ~s1 &~s0),
+d5=(in & s2 & ~s1 &s0),
+d6=(in & s2 & s1 &~s0),
+d7=(in & s2 & s1 &s0);
 endmodule
 ```
-OUTPUT:![Screenshot 2024-03-15 195918](https://github.com/Mohanraj7896/VLSI-LAB-EXP-2/assets/166592482/c0f43882-e3bd-45d5-9dce-f3d29bc0b051)
+### Output Waveform:
+![image](https://github.com/NMRohith/VLSI-LAB-EXP-2/assets/163638659/d3147d91-d757-4c64-9f8b-eb37545723cb)
 
-MAGNITUDE COMPARATOR:
-
-LOGIC DIAGRAM:
-
+## Magnitude Comparator
+### Logic Diagram:
 ![image](https://github.com/navaneethans/VLSI-LAB-EXP-2/assets/6987778/b2fe7a05-6bf7-4dcb-8f5d-28abbf7ea8c2)
-
-
-
+### Verilog code:
 ```
-module magnitudecomparator(a,b,eq,lt,gt);
+module magcomp(a,b,l,g,e);
 input [3:0]a,b;
-output reg eq,lt,gt;
-always@({a,b})
+output reg l,g,e;
+always @(*)
 begin
- if(a==b)
- begin
-eq=1'b1;
-lt=1'b0;
-gt=1'b0;
- end
- else if (a>b)
- begin
-eq=1'b0;
-lt=1'b0;
-gt=1'b1;
- end
- else
- begin
-eq=1'b0;
-lt=1'b1;
-gt=1'b0;
- end
+if(a>b)
+begin
+     l=1'b0;
+     g=1'b1;
+     e=1'b0;
+end
+else if(a<b)
+begin
+     l=1'b1;
+     g=1'b0;
+     e=1'b0;
+end
+else
+begin
+     l=1'b0;
+     g=1'b0;
+     e=1'b1;
+end
 end
 endmodule
 ```
-OUTPUT:![Screenshorts Image 2024-04-13 at 09 59 59_e263eb8c](https://github.com/Mohanraj7896/VLSI-LAB-EXP-2/assets/166592482/478f74a3-0f9c-41f4-9966-8741ef87c589)
+### Output Waveform:
+![image](https://github.com/NMRohith/VLSI-LAB-EXP-2/assets/163638659/f657099b-5ecd-4d1b-a02e-3c3baa9dcea2)
 
-
-
-RESULT:Hence ENCODER, DECODER, MULTIPLEXER, DEMULTIPLEXER, MAGNITUDE COMPARATOR are simulated and synthesised using Xilinx ISE.
+  
+## Result
+Hence ENCODER, DECODER, MULTIPLEXER, DEMULTIPLEXER, MAGNITUDE COMPARATOR are simulated and synthesised using Xilinx ISE.
 
 
